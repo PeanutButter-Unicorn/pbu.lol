@@ -1,4 +1,3 @@
-/* --- General Setup & Variables --- */
 :root {
     --primary-color: #0a66c2; /* A professional blue, similar to LinkedIn's */
     --background-color: #f3f2ef;
@@ -133,18 +132,60 @@ footer nav ul {
     gap: 15px;
 }
 
-/* --- Theme Toggle Button --- */
-#theme-toggle {
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+/* --- Theme Toggle Slider --- */
+.switch {
     margin-left: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    top: 2px;
+}
+    
+.theme-switch {
+  display: inline-block;
+  height: 28px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: var(--border-color);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: var(--card-background-color);
+  bottom: 4px;
+  content: "";
+  height: 20px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 20px;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.slider.round {
+  border-radius: 28px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 /* --- Responsive Design --- */
@@ -157,3 +198,4 @@ footer nav ul {
         margin-top: 1rem;
     }
 }
+

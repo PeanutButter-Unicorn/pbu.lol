@@ -1,31 +1,34 @@
-// Wait for the DOM to be fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Get the theme toggle button and the body element
-    const themeToggleButton = document.getElementById('theme-toggle');
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const body = document.body;
 
-    // Function to apply the saved theme or the system preference
+    // Function to apply the saved theme
     const applyTheme = () => {
         const savedTheme = localStorage.getItem('theme');
-        // Check for saved theme, otherwise check for system preference for dark mode
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (savedTheme === 'dark') {
             body.classList.add('dark-mode');
+            toggleSwitch.checked = true;
         } else {
             body.classList.remove('dark-mode');
+            toggleSwitch.checked = false;
         }
     };
 
-    // Add a click event listener to the toggle button
-    themeToggleButton.addEventListener('click', () => {
-        // Toggle the 'dark-mode' class on the body
-        body.classList.toggle('dark-mode');
+    // Function to switch theme
+    function switchTheme(e) {
+        if (e.target.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        }
+        else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        }
+    }
 
-        // Save the user's preference to localStorage
-        const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-        localStorage.setItem('theme', currentTheme);
-    });
+    // Add event listener
+    toggleSwitch.addEventListener('change', switchTheme, false);
 
-    // Apply the theme when the page loads
+    // Apply theme on initial load
     applyTheme();
 });
