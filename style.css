@@ -1,0 +1,159 @@
+/* --- General Setup & Variables --- */
+:root {
+    --primary-color: #0a66c2; /* A professional blue, similar to LinkedIn's */
+    --background-color: #f3f2ef;
+    --card-background-color: #ffffff;
+    --text-color: #333333;
+    --text-color-light: #666666;
+    --border-color: #e0e0e0;
+    --header-footer-bg: #ffffff;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    --primary-color: #70b5f9;
+    --background-color: #1d2226;
+    --card-background-color: #2b3940;
+    --text-color: #e1e9ee;
+    --text-color-light: #b0b9bf;
+    --border-color: #444;
+    --header-footer-bg: #2b3940;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Layout & Container --- */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--header-footer-bg);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+header nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Main Content & Cards --- */
+main {
+    padding: 2rem 0;
+}
+
+.card {
+    background-color: var(--card-background-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Links & Footer --- */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--header-footer-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color-light);
+}
+
+footer nav ul {
+    padding: 0;
+    list-style: none;
+    display: inline-flex;
+    gap: 15px;
+}
+
+/* --- Theme Toggle Button --- */
+#theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    header nav {
+        margin-top: 1rem;
+    }
+}
