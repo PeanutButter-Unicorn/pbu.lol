@@ -86,8 +86,9 @@ header nav a:hover {
 }
 
 /* --- Main Content & Cards --- */
-main {
-    padding: 2rem 0;
+main.container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .card {
